@@ -132,6 +132,8 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+
 </head>
 <body>
 
@@ -438,7 +440,7 @@
         "Audi": ["A3", "A4", "A5", "A6", "A7", "A8", "Q3", "Q5", "Q7", "Q8", "R8", "TT"],
         "Avatr": ["07", "11", "12"],
         "BMW": ["116", "118", "120", "320", "328", "330", "520", "523", "525", "528", "530", "535", "540", "730", "740", "750", "X1", "X3", "X5", "X6", "X7", "i3", "i4", "i8"],
-        "BYD": ["Atto 3", "Dolphin", "Han", "Qin", "Seal", "Song Plus", "Tang", "Yuan Plus"],
+        "BYD": ["Atto 3", "Destroyer 05", "Dolphin", "Han", "Qin", "Seal", "Song Plus", "Tang", "Yuan Plus"],
         "Bentley": ["Bentayga", "Continental", "Flying Spur", "Mulsanne"],
         "Bestune": ["B70", "T33", "T55", "T77", "T99"],
         "Cadillac": ["ATS", "CT5", "CTS", "Escalade", "SRX", "XT4", "XT5", "XT6"],
@@ -486,7 +488,7 @@
         "Skoda": ["Fabia", "Karoq", "Kodiaq", "Octavia", "Rapid", "Superb", "Yeti"],
         "Tesla": ["Cybertruck", "Model 3", "Model S", "Model X", "Model Y"],
         "Tofas": ["Dogan", "Kartal", "Sahin"],
-        "Toyota": ["Auris", "Avalon", "Avensis", "C-HR", "Camry", "Corolla", "FJ Cruiser", "Fortuner", "Highlander", "Hilux", "Land Cruiser", "Prado", "Prius", "RAV4", "Sequoia", "Sienna", "Vitz", "Yaris"],
+        "Toyota": ["Auris", "Avalon", "Avensis", "C-HR", "Camry", "Corolla", "FJ Cruiser", "Fortuner", "Harrier" , "Highlander", "Hilux", "Land Cruiser", "Prado", "Prius", "RAV4", "Sequoia", "Sienna", "Vitz", "Yaris"],
         "Volkswagen": ["Amarok", "Arteon", "Beetle", "Caddy", "Golf", "Jetta", "Passat", "Polo", "Scirocco", "Sharan", "Taos", "Teramont", "Tiguan", "Touareg", "Touran", "Transporter"]
     };
 
@@ -517,5 +519,8 @@
     });
 
 </script>
+<script src="{{ asset('js/theme.js') }}"></script>
+
+
 </body>
 </html>

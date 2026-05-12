@@ -1,0 +1,118 @@
+:root {
+    --bg: #f2f3f5;
+    --card: #ffffff;
+    --text: #222222;
+    --muted: #666666;
+    --border: #d8dce2;
+    --topbar: #0b2f5b;
+    --input: #ffffff;
+}
+
+html[data-theme="dark"] {
+    --bg: #111827;
+    --card: #1f2937;
+    --text: #f3f4f6;
+    --muted: #9ca3af;
+    --border: #374151;
+    --topbar: #071b33;
+    --input: #111827;
+}
+
+body {
+    background: var(--bg) !important;
+    color: var(--text) !important;
+}
+
+.topbar {
+    background: var(--topbar) !important;
+}
+
+.filter,
+.turbo-filter,
+.ad-card,
+.form-card,
+.main,
+.side,
+.empty {
+    background: var(--card) !important;
+    color: var(--text) !important;
+}
+
+input,
+select,
+textarea,
+.turbo-filter input,
+.turbo-filter select {
+    background: var(--input) !important;
+    color: var(--text) !important;
+    border-color: var(--border) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--muted) !important;
+}
+
+.name,
+.price,
+.title,
+.detail-value,
+.seller-price {
+    color: var(--text) !important;
+}
+
+.meta,
+.specs,
+.city,
+.detail-label,
+.side-info {
+    color: var(--muted) !important;
+}
+
+.detail-row {
+    border-bottom-color: var(--border) !important;
+}
+
+.more-filter-btn,
+.reset-btn {
+    background: var(--card) !important;
+    color: var(--text) !important;
+    border-color: var(--border) !important;
+}
+
+.theme-toggle {
+    width: 40px;
+    height: 38px;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 6px;
+    background: rgba(255,255,255,.12);
+    color: white;
+    font-size: 22px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.theme-toggle:hover {
+    background: rgba(255,255,255,.22);
+}
+
+html[data-theme="dark"] .image-box {
+    background: #0f172a !important;
+    color: #9ca3af !important;
+}
+
+html[data-theme="dark"] .delete-ad-btn {
+    background: #2a1418 !important;
+    color: #ffb4b4 !important;
+    border-color: #7f1d1d !important;
+}
+
+html[data-theme="dark"] .phone,
+html[data-theme="dark"] .search-btn,
+html[data-theme="dark"] .add-btn,
+html[data-theme="dark"] .submit {
+    background: #65b91f !important;
+}

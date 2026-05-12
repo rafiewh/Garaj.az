@@ -7,12 +7,34 @@ use Illuminate\Http\Request;
 
 class CarAdController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $ads = CarAd::latest()->get();
+        $ads = CarAd::query()
+        ->when($request->brand, fn($q) => $q->where('brand', $request->brand))
+        ->when($request->model, fn($q) => $q->where('model', $request->model))
+        ->when($request->city, fn($q) => $q->where('city', $request->city))
+        ->when($request->engine_type, fn($q) => $q->where('engine_type', $request->engine_type))
+        ->when($request->body_type, fn($q) => $q->where('body_type', $request->body_type))
+        ->when($request->price_min, fn($q) => $q->where('price', '>=', $request->price_min))
+        ->when($request->price_max, fn($q) => $q->where('price', '<=', $request->price_max))
+        ->when($request->year_min, fn($q) => $q->where('year', '>=', $request->year_min))
+        ->when($request->year_max, fn($q) => $q->where('year', '<=', $request->year_max))
+        ->when($request->mileage_max, fn($q) => $q->where('mileage', '<=', $request->mileage_max))
+        ->when($request->condition, fn($q) => $q->where('condition', $request->condition))
+        ->when($request->market, fn($q) => $q->where('market', $request->market))
+        ->when($request->color, fn($q) => $q->where('color', $request->color))
+        ->latest()
+        ->get();
 
         return view('car_ads.index', compact('ads'));
     }
+
+    public function show(CarAd $carAd)
+    {
+        return view('car_ads.show', compact('carAd'));
+    
+    }
+
 
     public function create()
     {
