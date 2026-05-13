@@ -134,14 +134,14 @@
             color: #777;
             font-size: 15px;
             font-weight: 600;
-}
+        }
+
         .image-box img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-}
-
         }
+
 
         .ad-body {
             padding: 12px 14px 14px 30px;
@@ -299,8 +299,9 @@
         .reset-btn {
             height: 46px;
             border-radius: 6px;
-            font-size: 15px;
-            font-weight: 800;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 700;
             cursor: pointer;
             text-align: center;
             text-decoration: none;
@@ -342,8 +343,9 @@
             border-radius: 6px;
             background: white;
             color: #0b2f5b;
-            font-size: 15px;
-            font-weight: 800;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 700;
             cursor: pointer;
         }
 
@@ -401,6 +403,56 @@
             }
         }
 
+
+        .nav-pill {
+            height: 38px;
+            border: 1px solid rgba(255,255,255,.35);
+            border-radius: 6px;
+            background: rgba(255,255,255,.12);
+            color: white;
+            padding: 0 13px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .nav-pill:hover {
+            background: rgba(255,255,255,.22);
+        }
+
+        .coming-soon-btn {
+            appearance: none;
+        }
+
+        .toast {
+            position: fixed;
+            top: 82px;
+            right: 24px;
+            background: #0b2f5b;
+            color: white;
+            padding: 13px 18px;
+            border-radius: 7px;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 8px 22px rgba(0,0,0,.18);
+            opacity: 0;
+            transform: translateY(-8px);
+            pointer-events: none;
+            transition: .25s;
+            z-index: 9999;
+        }
+
+        .toast.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
     </style>
     <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
 
@@ -413,9 +465,19 @@
 
         <div class="nav">
             <button type="button" class="theme-toggle">Gecə rejimi</button>
-            <a href="#">Bütün elanlar</a>
-            <a href="#">Salonlar</a>
-            <a href="#">Ehtiyat hissələri</a>
+            <a href="{{ route('car-ads.index') }}" class="nav-pill">Bütün elanlar</a>
+
+
+            <button type="button" class="nav-pill coming-soon-btn">
+                Salonlar
+            </button>
+
+
+            <button type="button" class="nav-pill coming-soon-btn">
+                Ehtiyat hissələri
+            </button>
+
+        
             <a href="{{ route('car-ads.create') }}" class="add-btn">+ Elan yerləşdir</a>
         </div>
     </div>
@@ -888,10 +950,28 @@
 </script>
 
 
-
-</script>
-
 <script src="{{ asset('js/theme.js') }}"></script>
+
+<div class="toast" id="toast">Tezliklə aktiv olacaq!</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toast = document.getElementById('toast');
+        let toastTimer;
+
+        document.querySelectorAll('.coming-soon-btn').forEach(function (button) {
+            button.addEventListener('click', function () {
+                clearTimeout(toastTimer);
+
+                toast.classList.add('active');
+
+                toastTimer = setTimeout(function () {
+                    toast.classList.remove('active');
+                }, 1800);
+            });
+        });
+    });
+</script>
 
 
 </body>
